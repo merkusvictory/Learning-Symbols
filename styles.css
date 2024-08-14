@@ -1,0 +1,267 @@
+* {
+    --bg-color: white;
+    --fg-color: black;
+    --loading-bar-color: rgb(0,255,0);
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.loading-circle * {
+    position: absolute;
+}
+
+.loading-circle {
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    top: 180px;
+    left: 30%;
+    transform-origin: 50% 50%;
+    border-radius: 50%;
+    border: 30px solid  var(--fg-color);
+    animation: spin 2s infinite linear; 
+    animation-delay: 0ms;
+}
+
+.circle-cutter {
+    height: 100px;
+    width: 300px;
+    background-color: var(--bg-color);
+}
+
+.circle-cutter.one {
+    top: 50%;
+    left: -20%
+}
+
+.circle-cutter.two {
+    top: 50%;
+    left: -30%;
+    transform: rotate(130deg);
+}
+
+.rounder {
+    height: 30px;
+    width: 30px;
+    background-color: var(--fg-color);
+}
+
+.rounder.one {
+    top: 45%;
+    left: -10%;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+/* Loading Bubbles */
+.loading-bubbles {
+    position: absolute;
+    top: 800px;
+    left: 40%;
+    height: 250px;
+    width: 250px;
+    box-sizing: border-box;
+}
+
+.loading-bubbles * {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.bubble {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    background-color: var(--fg-color);
+    animation: bubbles 2s infinite ease-in-out;
+}
+
+.bubble.one {
+    top: 6%;
+    left: 20%;
+    animation-delay: 0.33s;
+}
+
+.bubble.two {
+    top: 6%;
+    right: 20%;
+    animation-delay: 0.66s
+}
+
+.bubble.three {
+    top: 40%;
+    right: 0%;
+    animation-delay: 1s;
+}
+
+.bubble.four {
+    bottom: 6%;
+    right: 20%;
+    animation-delay: 1.33s;
+}
+
+.bubble.five {
+    bottom: 6%;
+    left: 20%;
+    animation-delay: 1.66s;
+}
+
+.bubble.six {
+    top: 40%;
+    left: 0%;
+    animation-delay: 2s;
+}
+
+.circle-guide {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation-delay: 2s;
+}
+
+@keyframes bubbles {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        scale: 1;
+    }
+    50% {
+        opacity: 0.5;
+        scale: 0.8;
+    }
+    75% {
+        scale: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Loading Bar */
+.loading-bar {
+    position: absolute;
+    top: 1400px;
+    left: 30%;
+    height: 70px;
+    width: 400px;
+    box-sizing: border-box;
+}
+
+.loading-bar * {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.loading-bar-bg {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    background-color: var(--fg-color);
+}
+
+.loading-bar-fg {
+    width: 98%;
+    height: 90%;
+    border-radius: 40px;
+    background-color: var(--loading-bar-color);
+    top: 5%;
+    left: 1%;
+    animation: progression 4s infinite ease-in-out;
+}
+
+@keyframes progression {
+    0% {
+       width: 16%
+    }
+    80% {
+        width: 98%;
+    }
+}
+
+/* Clock */
+.clock {
+    position: absolute;
+    top: 2000px;
+    left: 30%;
+    height: 400px;
+    width: 400px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+.clock * {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.clock-background {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 10px solid var(--fg-color);
+    background-color: var(--bg-color);
+}
+
+.clock-background::before {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    border: 10px solid var(--fg-color);
+}
+
+.clock-center {
+    top: 47.5%;
+    left: 47.5%;
+    border: 10px solid var(--fg-color);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.clock-hand-hour {
+    height: 30%;
+    top: 20%;
+    left: calc(50% - 1px);
+    border: 2px solid var(--fg-color);
+    transform-origin: calc(0% + 2px) 100%;
+    animation: ticking 86400s infinite linear;
+}
+
+.clock-hand-minute {
+    height: 45%;
+    top: 5%;
+    left: 50%;
+    border: 1px solid var(--fg-color);
+    transform-origin: calc(0% + 1px) 100%;
+    animation: ticking 3600s infinite linear;
+}
+
+.clock-hand-second {
+    height: 40%;
+    top: 10%;
+    left: 50%;
+    border: 1px solid red;
+    transform-origin: calc(0% + 1px) 100%;
+    animation: ticking 60s infinite linear;
+}
+
+@keyframes ticking {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
